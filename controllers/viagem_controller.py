@@ -1,7 +1,7 @@
 import pandas as pd
 from models.viagem_model import inserir_viagem
 from models.database import get_connection
-from models.viagem_model import inserir_viagem, listar_viagens
+from models.viagem_model import inserir_viagem, listar_viagens, atualizar_viagem, excluir_viagem
 
 def salvar_viagem(dados):
     inserir_viagem(
@@ -38,6 +38,25 @@ def cadastrar_viagem(
         lucro=lucro
     )
 
+def editar_viagem(
+    id,
+    data,
+    origem,
+    destino,
+    frete,
+    diesel,
+    pedagio,
+    manutencao,
+    outros,
+    lucro
+):
+    atualizar_viagem(
+        id, data, origem, destino, frete,
+        diesel, pedagio, manutencao, outros, lucro
+    )
+
+def deletar_viagem(id):
+    excluir_viagem(id)
 
 def obter_dashboard():
     return listar_viagens()

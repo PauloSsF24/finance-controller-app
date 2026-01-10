@@ -21,3 +21,48 @@ def listar_viagens():
     df = conn.execute("SELECT * FROM viagens").fetchall()
     conn.close()
     return df
+
+def atualizar_viagem(
+    id,
+    data,
+    origem,
+    destino,
+    frete,
+    diesel,
+    pedagio,
+    manutencao,
+    outros,
+    lucro
+):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        UPDATE viagens SET
+            data = ?,
+            origem = ?,
+            destino = ?,
+            frete = ?,
+            diesel = ?,
+            pedagio = ?,
+            manutencao = ?,
+            outros = ?,
+            lucro = ?
+        WHERE id = ?
+    """, (
+        data, origem, destino, frete,
+        diesel, pedagio, manutencao, outros,
+        lucro, id
+    ))
+
+    conn.commit()
+    conn.close()
+
+
+def excluir_viagem(id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("DELETE FROM viagens WHERE id = ?", (id,))
+    conn.commit()
+    conn.close()
