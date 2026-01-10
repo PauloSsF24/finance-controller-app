@@ -111,11 +111,11 @@ def render(df):
             lucro
         )
         st.success("✅ Viagem atualizada com sucesso!")
-        st.experimental_rerun()
+        st.rerun()
 
     st.divider()
 
     if st.button("❌ Excluir Viagem Selecionada"):
         deletar_viagem(viagem_id)
         st.warning("🗑️ Viagem excluída com sucesso!")
-        st.experimental_rerun()
+        st.rerun()
