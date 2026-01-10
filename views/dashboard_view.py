@@ -4,6 +4,14 @@ from controllers.viagem_controller import editar_viagem, deletar_viagem
 
 
 def render(df):
+
+    usuario = st.session_state.get("usuario", "Usuário")
+
+    st.markdown(f"""
+    ## 👋 Olá, **{usuario}**
+    Seja bem-vindo ao seu **Controle Financeiro de Viagens 🚚**
+    """)
+
     st.title("📊 Dashboard Financeiro")
 
     # ================= KPIs =================

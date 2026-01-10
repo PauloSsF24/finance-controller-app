@@ -12,6 +12,7 @@ def render():
         if autenticar(username, senha):
             st.session_state["logado"] = True
             st.session_state["usuario"] = username
+            st.session_state["tela"] = "dashboard"
             st.rerun()
         else:
             st.error("Usuário ou senha inválidos")
