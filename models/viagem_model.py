@@ -1,4 +1,4 @@
-from models.database import get_conection
+from models.database import get_connection
 
 def calcular_lucro(frete, diesel, pedagio, manutencao, outros):
     return frete - (diesel + pedagio + manutencao + outros)
@@ -6,7 +6,7 @@ def calcular_lucro(frete, diesel, pedagio, manutencao, outros):
 def inserir_viagem(data, origem, destino, frete, diesel, pedagio, manutencao, outros):
     lucro = calcular_lucro(frete, diesel, pedagio, manutencao, outros)
 
-    conn = get_conection()
+    conn = get_connection()
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -19,7 +19,7 @@ def inserir_viagem(data, origem, destino, frete, diesel, pedagio, manutencao, ou
     conn.close()
 
 def listar_viagens():
-    conn = get_conection()
+    conn = get_connection()
     df = conn.execute("SELECT * FROM viagens").fetchall()
     conn.close()
     return df

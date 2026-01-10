@@ -1,10 +1,10 @@
 import sqlite3
 
-def get_conection():
-    return sqlite3.connect("controle_caminhão.db")
+def get_connection():
+    return sqlite3.connect("controle_caminhao.db")
 
 def criar_tabelas():
-    conn = get_conection()
+    conn = get_connection()
     cursor = conn.cursor()
 
     cursor.execute("""
