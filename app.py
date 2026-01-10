@@ -45,4 +45,4 @@ st.sidebar.write(f"👤 {st.session_state['usuario']}")
 
 if st.sidebar.button("🚪 Logout"):
     st.session_state.clear()
-    st.rerun()
+    st.experimental_rerun()
