@@ -3,9 +3,7 @@ from models.database import get_connection
 def calcular_lucro(frete, diesel, pedagio, manutencao, outros):
     return frete - (diesel + pedagio + manutencao + outros)
 
-def inserir_viagem(data, origem, destino, frete, diesel, pedagio, manutencao, outros):
-    lucro = calcular_lucro(frete, diesel, pedagio, manutencao, outros)
-
+def inserir_viagem(data, origem, destino, frete, diesel, pedagio, manutencao, outros, lucro):
     conn = get_connection()
     cursor = conn.cursor()
 

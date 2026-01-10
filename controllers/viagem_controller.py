@@ -43,6 +43,16 @@ def obter_dashboard():
     return listar_viagens()
 
 def obter_dashboard():
+    dados = listar_viagens()
+
+    colunas = [
+        "id", "data", "origem", "destino", "frete",
+        "diesel", "pedagio", "manutencao", "outros", "lucro"
+    ]
+
+    return pd.DataFrame(dados, columns=colunas)
+
+def obter_dashboard():
     conn = get_connection()
     df = pd.read_sql("SELECT * FROM viagens", conn)
     conn.close()

@@ -17,8 +17,7 @@ if opcao == "Cadastro de Viagem":
 
 elif opcao == "Dashboard Financeiro":
     df = obter_dashboard()
-
-    if df.empty:
-        st.warning("Nenhuma viagem cadastrada ainda.")
-    else:
+    if not df.empty:
         dashboard_view.render(df)
+    else:
+        st.warning("Nenhuma viagem cadastrada ainda.")
