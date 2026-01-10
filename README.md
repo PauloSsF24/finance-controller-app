@@ -50,7 +50,7 @@ financeApp/
 │   └── dashboard_view.py
 │
 ├── requirements.txt
-└── finance.db
+└── controle_caminhao.db
 ```
 
 ### 📂 Responsabilidades
